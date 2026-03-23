@@ -1,15 +1,16 @@
 import React, { memo } from "react";
-import { NavLink, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
+
+import AppHeader from "./components/app-header";
+import AppFooter from "./components/app-footer";
 import routes from "./router";
 
 const App = memo(() => {
   return (
-    <div>
-      <div className="nav">
-        <NavLink to="/home">首页</NavLink>
-        <NavLink to="/about">关于</NavLink>
-      </div>
-      {useRoutes(routes)}
+    <div className="app">
+      <AppHeader />
+      <div className="content">{useRoutes(routes)}</div>
+      <AppFooter />
     </div>
   );
 });
