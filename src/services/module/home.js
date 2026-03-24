@@ -1,7 +1,7 @@
 import hyRequest from "../request";
 
-export function getHighScoreData() {
+export function getGoodPriceData() {
   return hyRequest.get({
-    url: "/home/highscore",
+    url: "/home/goodprice",
   });
 }
