@@ -5,6 +5,7 @@ import { HomeWrapper } from "./style";
 import HomeBanner from "./c-cpns/home-banner";
 import { fetchGoodPriceAction } from "@/store/modules/home";
 import SectionHeader from "@/components/section-header";
+import RoomItem from "@/components/room-item";
 
 const Home = memo(() => {
   const dispatch = useDispatch();
@@ -25,12 +26,8 @@ const Home = memo(() => {
         <div className="good-price">
           <SectionHeader title={goodPriceInfo.title} />
           <div className="room-list">
-            {goodPriceInfo.list?.map((item) => {
-              return (
-                <div key={item.id} className="room-item">
-                  {item.name}
-                </div>
-              );
+            {goodPriceInfo.list?.slice(0, 8).map((item) => {
+              return <RoomItem key={item.id} itemData={item} />;
             })}
           </div>
         </div>
