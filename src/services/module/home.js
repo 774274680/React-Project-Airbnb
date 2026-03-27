@@ -5,3 +5,9 @@ export function getGoodPriceData() {
     url: "/home/goodprice",
   });
 }
+
+export function getHighScoreData() {
+  return hyRequest.get({
+    url: "/home/highscore",
+  });
+}
