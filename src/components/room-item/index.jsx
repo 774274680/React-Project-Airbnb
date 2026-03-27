@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import PropTypes from "prop-types";
+import Rating from "@mui/material/Rating";
 
 import { ItemWrapper } from "./style";
 
@@ -16,6 +17,16 @@ const RoomItem = memo((props) => {
       <div className="name">{itemData.name}</div>
       <div className="price">{itemData.price_format + "/晚"}</div>
       <div className="bottom">
+        <span className="rating">
+          <Rating
+            name="read-only"
+            size="small"
+            value={3.5}
+            precision={0.5}
+            readOnly
+            sx={{ fontSize: "13px" }}
+          />
+        </span>
         <span
           style={{
             fontSize: itemData.bottom_info?.["font-size"],

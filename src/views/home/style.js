@@ -9,12 +9,6 @@ export const HomeWrapper = styled.div`
 
   .good-price {
     .room-list {
-      display: flex;
-      flex-wrap: wrap;
-      > div {
-        flex: 25%;
-        flex-grow: 0;
-      }
     }
   }
 `;
