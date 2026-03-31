@@ -5,16 +5,22 @@ import { fetchHomeDataAction } from "@/store/modules/home";
 import { HomeWrapper } from "./style";
 import HomeBanner from "./c-cpns/home-banner";
 import HomeSectionV1 from "./c-cpns/home-section-v1";
+import HomeSectionV2 from "./c-cpns/home-section-v2";
+import { isEmptyO } from "@/utils";
 
 const Home = memo(() => {
   const dispatch = useDispatch();
-  const { goodPriceInfo, highScoreInfo } = useSelector((state) => {
+  /** redux数据 */
+  const { goodPriceInfo, highScoreInfo, discountInfo, recommendInfo } = useSelector((state) => {
     return {
       goodPriceInfo: state.home.goodPriceInfo,
       highScoreInfo: state.home.highScoreInfo,
+      discountInfo: state.home.discountInfo,
+      recommendInfo: state.home.recommendInfo,
     };
   }, shallowEqual);
 
+  /** 发送网络请求 */
   useEffect(() => {
     dispatch(fetchHomeDataAction());
   }, [dispatch]);
@@ -23,8 +29,10 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="container">
-        <HomeSectionV1 info={goodPriceInfo} />
-        <HomeSectionV1 info={highScoreInfo} />
+        {isEmptyO(discountInfo) && <HomeSectionV2 info={discountInfo} />}
+        {isEmptyO(recommendInfo) && <HomeSectionV2 info={recommendInfo} />}
+        {isEmptyO(goodPriceInfo) && <HomeSectionV1 info={goodPriceInfo} />}
+        {isEmptyO(highScoreInfo) && <HomeSectionV1 info={highScoreInfo} />}
       </div>
     </HomeWrapper>
   );

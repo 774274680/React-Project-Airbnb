@@ -5,11 +5,11 @@ import { RoomsWrapper } from "./style";
 import RoomItem from "@/components/room-item";
 
 const SectionRooms = memo((props) => {
-  const { list } = props;
+  const { list, itemWidth } = props;
   return (
     <RoomsWrapper>
       {list?.slice(0, 8).map((item) => {
-        return <RoomItem key={item.id} itemData={item} />;
+        return <RoomItem key={item.id} itemData={item} itemWidth={itemWidth} />;
       })}
     </RoomsWrapper>
   );

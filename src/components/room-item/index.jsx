@@ -5,9 +5,9 @@ import Rating from "@mui/material/Rating";
 import { ItemWrapper } from "./style";
 
 const RoomItem = memo((props) => {
-  const { itemData } = props;
+  const { itemData, itemWidth = "25%" } = props;
   return (
-    <ItemWrapper>
+    <ItemWrapper width={itemWidth}>
       <div className="cover">
         <img src={itemData.picture_url} alt="" />
       </div>

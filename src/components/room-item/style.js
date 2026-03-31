@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
   padding: 5px;
-  width: 25%;
+  width: ${(props) => props.width};
   .cover {
     overflow: hidden;
     img {

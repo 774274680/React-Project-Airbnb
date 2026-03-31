@@ -11,3 +11,15 @@ export function getHighScoreData() {
     url: "/home/highscore",
   });
 }
+
+export function getDiscountData() {
+  return hyRequest.get({
+    url: "/home/discount",
+  });
+}
+
+export function getRecommendData() {
+  return hyRequest.get({
+    url: "/home/hotrecommenddest",
+  });
+}
