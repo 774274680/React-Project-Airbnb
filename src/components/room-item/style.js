@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
   padding: 5px;
-  width: ${(props) => props.width};
+  flex: ${(props) => props.width};
+  flex-shrink: 0;
   .cover {
     overflow: hidden;
     img {
       width: 100%;
-      height: 163px;
+      height: 222px;
       border-radius: 5px;
     }
   }
