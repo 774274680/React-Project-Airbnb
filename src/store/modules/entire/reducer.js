@@ -1,7 +1,9 @@
-import { ADD_NUM, SUB_NUM } from "./constants";
+import { ADD_NUM, SUB_NUM, CHANGE_ROOMLIST, CHANGE_TOTAL_COUNT } from "./constants";
 
 const initialState = {
-  counter: 10,
+  // counter: 10,
+  roomList: [],
+  totalCount: 0,
 };
 function reducer(state = initialState, actions) {
   switch (actions.type) {
@@ -9,6 +11,10 @@ function reducer(state = initialState, actions) {
       return { ...state, counter: state.counter + actions.num };
     case SUB_NUM:
       return { ...state, counter: state.counter - actions.num };
+    case CHANGE_ROOMLIST:
+      return { ...state, roomList: actions.roomList };
+    case CHANGE_TOTAL_COUNT:
+      return { ...state, totalCount: actions.totalCount };
     default:
       return state;
   }
