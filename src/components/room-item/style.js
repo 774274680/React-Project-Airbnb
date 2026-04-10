@@ -5,10 +5,15 @@ export const ItemWrapper = styled.div`
   flex: ${(props) => props.width};
   flex-shrink: 0;
   .cover {
+    position: relative;
+    padding: 66% 8px 0;
     overflow: hidden;
     img {
+      position: absolute;
+      top: 0;
       width: 100%;
-      height: 222px;
+      /* height: 222px; */
+      height: 100%;
       border-radius: 5px;
     }
   }

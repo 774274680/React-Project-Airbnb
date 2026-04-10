@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import SectionHeader from "@/components/section-header";
 import ScrollView from "@/base-ui/scroll-view";
 import RoomItem from "@/components/room-item";
+import SectionFooter from "@/components/section-footer";
 
 const HomeSectionV3 = memo((props) => {
   const { info } = props;
@@ -17,6 +18,7 @@ const HomeSectionV3 = memo((props) => {
           })}
         </ScrollView>
       </div>
+      <SectionFooter name="plus" />
     </SectionV3Wrapper>
   );
 });
