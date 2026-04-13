@@ -1,7 +1,7 @@
 import hyRequest from "../request";
 
-export function getEntireListData() {
+export function getEntireListData(start = 0, limit = 20) {
   return hyRequest.get({
-    url: "/entire/list?offset=0&size=20",
+    url: `/entire/list?offset=${start}&size=${limit}`,
   });
 }

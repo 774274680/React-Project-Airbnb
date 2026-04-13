@@ -1,5 +1,11 @@
 import { getEntireListData } from "@/services/module/entire";
-import { ADD_NUM, CHANGE_ROOMLIST, CHANGE_TOTAL_COUNT, SUB_NUM } from "./constants";
+import {
+  ADD_NUM,
+  CHANGE_CURRENT_PAGE,
+  CHANGE_ROOMLIST,
+  CHANGE_TOTAL_COUNT,
+  SUB_NUM,
+} from "./constants";
 
 export function addNumberAction(num) {
   return { type: ADD_NUM, num };
@@ -17,10 +23,15 @@ export function changeTotalCountAction(totalCount) {
   return { type: CHANGE_TOTAL_COUNT, totalCount };
 }
 
-export function fetchEntireListAction() {
+export function changeCurrentPageAction(page) {
+  return { type: CHANGE_CURRENT_PAGE, page };
+}
+
+export function fetchEntireListAction(page = 1) {
   return async (dispatch) => {
-    console.log("dispatch=>", dispatch);
-    const res = await getEntireListData();
+    dispatch(changeCurrentPageAction(page));
+    const start = (page - 1) * 20;
+    const res = await getEntireListData(start);
     dispatch(changeTotalCountAction(res.totalCount));
     dispatch(changeRoomListAction(res.list));
   };

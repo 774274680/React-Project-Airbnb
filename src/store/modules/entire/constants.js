@@ -3,3 +3,4 @@ export const SUB_NUM = "sub_num";
 
 export const CHANGE_ROOMLIST = "change_roomlist";
 export const CHANGE_TOTAL_COUNT = "change_total_count";
+export const CHANGE_CURRENT_PAGE = "change_current_page";
