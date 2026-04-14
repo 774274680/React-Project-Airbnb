@@ -1,16 +1,47 @@
-import React, { memo } from "react";
+import React, { memo, useRef } from "react";
+import { Carousel } from "antd";
 import PropTypes from "prop-types";
 import Rating from "@mui/material/Rating";
 
 import { ItemWrapper } from "./style";
+import IconArrowLeft from "@/assets/svg/icon_arrow_left";
+import IconArrowRight from "@/assets/svg/icon_arrow_right";
 
 const RoomItem = memo((props) => {
   const { itemData, itemWidth = "25%" } = props;
+  const carousel_ref = useRef();
+
+  function controlClickHandle(isRight = true) {
+    isRight ? carousel_ref.current.next() : carousel_ref.current.prev();
+  }
+
   return (
     <ItemWrapper width={itemWidth}>
-      <div className="cover">
+      {/* 无轮播图情况 */}
+      {/* <div className="cover">
         <img src={itemData.picture_url} alt="" />
+      </div> */}
+      {/* 有轮播图情况 */}
+      <div className="swiper">
+        <div className="control">
+          <div className="btn left" onClick={() => controlClickHandle(false)}>
+            <IconArrowLeft width={30} height={30} />
+          </div>
+          <div className="btn right" onClick={() => controlClickHandle(true)}>
+            <IconArrowRight width={32} height={32} />
+          </div>
+        </div>
+        <Carousel ref={carousel_ref}>
+          {itemData.picture_urls.map((item) => {
+            return (
+              <div className="cover" key={item}>
+                <img src={item} alt="" />
+              </div>
+            );
+          })}
+        </Carousel>
       </div>
+
       <div className="verify" style={{ color: itemData.verify_info.text_color }}>
         {itemData.verify_info.messages.join("·")}
       </div>

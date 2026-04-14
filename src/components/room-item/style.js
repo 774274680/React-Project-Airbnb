@@ -2,19 +2,60 @@ import styled from "styled-components";
 
 export const ItemWrapper = styled.div`
   padding: 5px;
-  flex: ${(props) => props.width};
-  flex-shrink: 0;
+  width: ${(props) => props.width};
+
+  .swiper {
+    position: relative;
+    /* &:hover {
+      .left {
+        background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+      }
+      .right {
+        background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+      }
+    } */
+    &:hover {
+      .control {
+        display: flex;
+      }
+    }
+
+    .control {
+      display: none;
+      .btn {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 9;
+        width: 83px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        cursor: pointer;
+        &.left {
+          left: 0;
+          background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+        }
+        &.right {
+          right: 0;
+          background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+        }
+      }
+    }
+  }
+
   .cover {
     position: relative;
-    padding: 66% 8px 0;
+    padding: 66% 0 0;
     overflow: hidden;
     img {
       position: absolute;
       top: 0;
       width: 100%;
-      /* height: 222px; */
       height: 100%;
       border-radius: 5px;
+      object-fit: cover;
     }
   }
   .verify {

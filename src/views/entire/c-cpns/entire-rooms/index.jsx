@@ -4,10 +4,15 @@ import RoomItem from "@/components/room-item";
 import { shallowEqual, useSelector } from "react-redux";
 
 const EntireRooms = memo(() => {
-  const { roomList = [], totalCount } = useSelector((state) => {
+  const {
+    roomList = [],
+    totalCount,
+    isLoading,
+  } = useSelector((state) => {
     return {
       roomList: state.entire.roomList,
       totalCount: state.entire.totalCount,
+      isLoading: state.entire.isLoading,
     };
   }, shallowEqual);
 
@@ -19,6 +24,7 @@ const EntireRooms = memo(() => {
           return <RoomItem key={item.id} itemWidth="20%" itemData={item} />;
         })}
       </div>
+      {isLoading && <div className="cover"></div>}
     </RoomsWrapper>
   );
 });

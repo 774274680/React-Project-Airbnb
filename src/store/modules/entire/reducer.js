@@ -4,6 +4,7 @@ import {
   CHANGE_ROOMLIST,
   CHANGE_TOTAL_COUNT,
   CHANGE_CURRENT_PAGE,
+  CHANGE_IS_LOADING,
 } from "./constants";
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   roomList: [],
   totalCount: 0,
   currentPage: 0,
+  isLoading: false,
 };
 function reducer(state = initialState, actions) {
   switch (actions.type) {
@@ -24,6 +26,8 @@ function reducer(state = initialState, actions) {
       return { ...state, totalCount: actions.totalCount };
     case CHANGE_CURRENT_PAGE:
       return { ...state, currentPage: actions.page };
+    case CHANGE_IS_LOADING:
+      return { ...state, isLoading: actions.isLoading };
     default:
       return state;
   }
