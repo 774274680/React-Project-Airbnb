@@ -32,7 +32,7 @@ const RoomItem = memo((props) => {
           </div>
         </div>
         <Carousel ref={carousel_ref}>
-          {itemData.picture_urls.map((item) => {
+          {itemData.picture_urls?.map((item) => {
             return (
               <div className="cover" key={item}>
                 <img src={item} alt="" />
