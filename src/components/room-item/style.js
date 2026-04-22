@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ItemWrapper = styled.div`
   padding: 5px;
   width: ${(props) => props.width};
+  flex-shrink: 0;
 
   .swiper {
     position: relative;
