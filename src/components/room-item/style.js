@@ -43,6 +43,27 @@ export const ItemWrapper = styled.div`
         }
       }
     }
+    .indicator {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      z-index: 9;
+      width: 30%;
+      margin: 0 auto;
+      .indicator-item {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin-right: 10px;
+        &.active {
+          width: 10px;
+          height: 10px;
+          background-color: #7a7a7a;
+        }
+      }
+    }
   }
 
   .cover {

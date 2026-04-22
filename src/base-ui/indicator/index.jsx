@@ -3,7 +3,7 @@ import React, { memo, useEffect, useRef } from "react";
 import { IndicatorWrapper } from "./style";
 
 const Indicator = memo((props) => {
-  const { selectIndex } = props;
+  const { selectIndex = 0 } = props;
   const listRef = useRef();
   useEffect(() => {
     // 根据选择的索引来进行位置的偏移
