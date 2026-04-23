@@ -2,6 +2,7 @@ import { getEntireListData } from "@/services/module/entire";
 import {
   ADD_NUM,
   CHANGE_CURRENT_PAGE,
+  CHANGE_DETAIL_INFO,
   CHANGE_IS_LOADING,
   CHANGE_ROOMLIST,
   CHANGE_TOTAL_COUNT,
@@ -30,6 +31,10 @@ export function changeCurrentPageAction(page) {
 
 export function changeIsLoadingAction(isLoading) {
   return { type: CHANGE_IS_LOADING, isLoading };
+}
+
+export function changeDetailInfoAction(detailInfo) {
+  return { type: CHANGE_DETAIL_INFO, detailInfo };
 }
 
 export function fetchEntireListAction(page = 1) {

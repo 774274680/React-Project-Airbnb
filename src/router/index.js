@@ -7,6 +7,7 @@ const Home = React.lazy(() => import("@/views/home/index.jsx"));
 const About = React.lazy(() => import("@/views/about/index.jsx"));
 const Entire = React.lazy(() => import("@/views/entire/index.jsx"));
 const Demo = React.lazy(() => import("@/views/demo/index.jsx"));
+const Detail = React.lazy(() => import("@/views/detail/index.jsx"));
 
 const routes = [
   {
@@ -28,6 +29,10 @@ const routes = [
   {
     path: "/demo",
     element: <Demo />,
+  },
+  {
+    path: "/detail",
+    element: <Detail />,
   },
 ];
 

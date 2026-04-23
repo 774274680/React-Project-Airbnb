@@ -10,7 +10,7 @@ import Indicator from "@/base-ui/indicator";
 import classNames from "classnames";
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth = "25%" } = props;
+  const { itemData, itemWidth = "25%", itemClick } = props;
   const carousel_ref = useRef();
   const [selectIndex, setSelectIndex] = useState(0);
 
@@ -22,6 +22,12 @@ const RoomItem = memo((props) => {
     if (newIndex < 0) newIndex = picsLength - 1;
     if (newIndex >= picsLength) newIndex = 0;
     setSelectIndex(newIndex);
+  }
+
+  function onSliderItemImgClick() {
+    // console.log(props.itemData);
+    // navigate("/detail");
+    itemClick && itemClick(props.itemData);
   }
 
   const swiperEl = (
@@ -49,7 +55,7 @@ const RoomItem = memo((props) => {
       <Carousel ref={carousel_ref} dots={false}>
         {itemData.picture_urls?.map((item) => {
           return (
-            <div className="cover" key={item}>
+            <div className="cover" key={item} onClick={onSliderItemImgClick}>
               <img src={item} alt="" />
             </div>
           );

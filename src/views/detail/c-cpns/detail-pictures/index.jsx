@@ -1,0 +1,33 @@
+import React, { memo } from "react";
+import { PicturesWrapper } from "./style";
+import { shallowEqual, useSelector } from "react-redux";
+
+const DetailPictures = memo(() => {
+  const { detailInfo } = useSelector((state) => {
+    return {
+      detailInfo: state.entire.detailInfo,
+    };
+  }, shallowEqual);
+  return (
+    <PicturesWrapper>
+      <div className="left">
+        <div className="room-item">
+          <img src={detailInfo.picture_urls?.[0]} alt="" />
+          <div className="cover"></div>
+        </div>
+      </div>
+      <div className="right">
+        {detailInfo.picture_urls?.slice(1, 5).map((item) => {
+          return (
+            <div className="room-item" key={item}>
+              <img src={item} alt="" />
+              <div className="cover"></div>
+            </div>
+          );
+        })}
+      </div>
+    </PicturesWrapper>
+  );
+});
+
+export default DetailPictures;
