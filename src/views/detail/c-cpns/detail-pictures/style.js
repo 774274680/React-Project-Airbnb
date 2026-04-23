@@ -2,6 +2,13 @@ import styled from "styled-components";
 
 export const PicturesWrapper = styled.div`
   display: flex;
+
+  &:hover {
+    .cover {
+      opacity: 1 !important;
+    }
+  }
+
   .left {
     width: 50%;
     .room-item {
@@ -28,15 +35,22 @@ export const PicturesWrapper = styled.div`
       right: 0;
       bottom: 0;
       top: 0;
-      /* background-color: rgba(0, 0, 0, 0.2); */
+      background-color: rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      cursor: pointer;
+      transition: opacity 200ms ease;
+    }
+    &:hover {
+      .cover {
+        opacity: 0 !important;
+      }
+      img {
+        transform: scale(1.08);
+      }
     }
   }
   img {
     width: 100%;
-    cursor: pointer;
     transition: transform 200ms ease;
-    &:hover {
-      transform: scale(1.3);
-    }
   }
 `;
