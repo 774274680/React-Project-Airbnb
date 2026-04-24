@@ -31,7 +31,12 @@ export const ViewWrapper = styled.div`
     overflow: hidden;
     .scroll-content {
       display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
       transition: all 200ms ease;
+      & > * {
+        flex-shrink: 0;
+      }
     }
   }
 `;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const IndicatorWrapper = styled.div`
+  position: relative;
   overflow: hidden;
   .i-list {
     display: flex;

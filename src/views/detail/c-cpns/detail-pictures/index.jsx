@@ -34,7 +34,9 @@ const DetailPictures = memo(() => {
         显示照片
       </div>
 
-      {isShowPic && <PictureBrowser closeClick={() => setIsShowPic(false)} />}
+      {isShowPic && (
+        <PictureBrowser list={detailInfo.picture_urls} closeClick={() => setIsShowPic(false)} />
+      )}
     </PicturesWrapper>
   );
 });

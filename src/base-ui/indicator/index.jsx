@@ -14,7 +14,6 @@ const Indicator = memo((props) => {
     const containerScroll = listRef.current.scrollWidth;
     // console.log("ddd=>", itemOffsetLeft, itemWidth, containerWidth);
     let distance = itemOffsetLeft + itemWidth * 0.5 - containerWidth * 0.5;
-
     // 针对左右两边是否允许滚动处理
     if (distance < 0) distance = 0;
     const totalDistance = containerScroll - containerWidth;
